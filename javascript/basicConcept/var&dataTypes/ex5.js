@@ -7,7 +7,7 @@ const wordDictionary = {
     "book": "a set of written or printed pages, usually bound with a protective cover"
   };
   
-  // Display the word-meaning dictionary
+  
   console.log("Word-Meaning Dictionary:");
   for (const word in wordDictionary) {
     console.log(`${word}: ${wordDictionary[word]}`);
