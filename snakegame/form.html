@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+<h1>Customer/Student Records</h1>
+
+<form>
+  <label for="name">Name:</label>
+  <input type="text" id="name" ng-model="name">
+  <br><br>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" ng-model="email">
+  <br><br>
+  
+  <button ng-click="addRecord()">Add Record</button>
+</form>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <tr ng-repeat="record in records">
+    <td>{{record.name}}</td>
+    <td>{{record.email}}</td>
+  </tr>
+</table>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+  $scope.records = [];
+  
+  $scope.addRecord = function() {
+    $scope.records.push({name: $scope.name, email: $scope.email});
+    $scope.name = '';
+    $scope.email = '';
+  }
+});
+</script>
+
+</body>
+</html>
